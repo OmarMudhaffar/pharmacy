@@ -55,6 +55,25 @@ export class AppComponent {
 
     this.initializeApp();
 
+    auth.authState.subscribe(user => {
+      if(user != undefined){
+        if(user.email == "admin@admin.com"){
+            this.admin = true;
+            var addmidc = {
+                title: 'اضافة دواء',
+                url: '/add',
+                icon: 'leaf'
+            };
+            var qr = {
+              title: 'قارئ QR',
+              url: '/qrcode',
+              icon: 'qr-scanner'
+            }
+            this.appPages.unshift(qr);
+            this.appPages.unshift(addmidc);
+        }
+      }
+    })
 
 
   }
@@ -71,22 +90,6 @@ export class AppComponent {
     .then(
       data => {
 
-
-        if(data == "admin@admin.com"){
-          this.admin = true;
-          var addmidc = {
-              title: 'اضافة دواء',
-              url: '/add',
-              icon: 'leaf'
-          };
-          var qr = {
-            title: 'قارئ QR',
-            url: '/qrcode',
-            icon: 'qr-scanner'
-          }
-          this.appPages.unshift(qr);
-          this.appPages.unshift(addmidc);
-        }
 
         if(data != undefined){
           this.navCtrl.navigateRoot("/home")
