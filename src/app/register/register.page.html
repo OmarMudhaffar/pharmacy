@@ -1,0 +1,102 @@
+
+<ion-content>
+
+    <div class="mheader" id="mheader">
+    
+        <div class="mcontent">
+    
+            <div class="logo">
+                <img src="assets/imgs/drug.svg"> 
+            </div>
+            
+            <div class="inputs">
+            
+            <!-- singup view -->
+            
+            <div class="signupView">
+                
+                <div class="username">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+    
+            
+                    <input type="text" placeholder="اسم المستخدم" id="username" #namereg  >
+                </div>
+            
+                <div class="email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="email" placeholder="البريد الالكتروني" #emailreg>
+                </div>
+            
+                <div class="pass">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <input type="password" placeholder="كلمة المرور" id="password" #passreg>
+                    <i class="fa fa-eye eye" aria-hidden="true" id="showpass" (click)="shoEye()" ></i>
+                    <i class="fa fa-eye-slash eye" aria-hidden="true" id="hidepass" (click)="hideEye()"></i>
+            
+                </div>
+            
+                <div class="sections">
+                        <div class="login">
+                                <p (click)="viewLogin()" >لديك حساب؟</p>
+                        </div>
+                        <button color="dark" ion-button outline (click)="register(emailreg.value,namereg.value,passreg.value)" >انشاء حساب</button>
+                        
+                </div>
+            
+            </div>
+            
+            <div class="loginView">
+            
+                
+                <div class="email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                      <input type="email" placeholder="البريد الالكتروني" #emaillog>
+                  </div>
+              
+                  <div class="pass">
+                      <i class="fa fa-key" aria-hidden="true"></i>
+                      <input type="password" placeholder="كلمة المرور" id="passwordTwo" #passlog>
+                      <i class="fa fa-eye eye" aria-hidden="true" id="showpassTwo" (click)="shoEyeTwo()" ></i>
+                      <i class="fa fa-eye-slash eye" aria-hidden="true" id="hidepassTwo" (click)="hideEyeTwo()"></i>
+              
+                  </div>
+                
+                    <div class="sections">
+                            <div class="login">
+                                    <p (click)="viewSignup()">انشاء حساب؟</p>
+                            </div>
+                            <button color="dark" ion-button outline (click)="login(emaillog.value,passlog.value)" >دخول</button>
+                        
+                    </div>
+                
+                </div>
+            
+            </div>
+            
+            
+                <div class="or">
+                    <div class="orleft"></div>
+                    <div>او بأستخدام</div>
+                    <div class="orright"></div>
+                </div>
+                
+                <div class="sochial">
+                    
+                
+                        <img src="assets/imgs/facebook.svg" (click)="fblogin()">
+                        <img src="assets/imgs/twitter.svg">
+                        <img src="assets/imgs/google-plus.svg" (click)="singUpGoogle()">
+            
+            
+            
+            
+            <!-- end signup view-->
+            </div>
+            
+            
+            </div>
+    
+    </div>
+    
+    </ion-content>
+    

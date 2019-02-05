@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title> 
+        <div class="shop">
+            <div class="name">
+                   المشتريات
+              </div>
+          <div class="shopicon">
+              <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+            </div>
+            </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div class="waiteload">
+
+        <div class="waite-contetn">
+    
+    
+          <div class="spinner">
+              <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+    
+          <div class="notfound">
+            <img src="assets/imgs/notfound.svg">
+            <p>لا يوجد عناصر</p>
+          </div>
+    
+        </div>
+    
+      </div>
+
+  <ion-card *ngFor="let item of items">
+    
+    <ion-card-content>
+        <div class="imagedev" [ngStyle]="{'background-image': 'url(' + item.payload.val().qr + ')'}"></div>
+
+      <ion-card-title>
+        <ion-item lines="none">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-label>{{item.payload.val().username}}</ion-label>
+          <ion-icon name="trash" style="color:red;" slot="end" (click)="delete(item.key)" ></ion-icon>
+        </ion-item>
+  
+        </ion-card-title>
+        <ion-item lines="none">
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <ion-label>{{item.payload.val().date}}</ion-label>
+        </ion-item>
+    </ion-card-content>
+
+
+  </ion-card>
+</ion-content>

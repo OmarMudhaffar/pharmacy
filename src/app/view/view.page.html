@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title> 
+        <div class="shop">
+            <div class="name">
+                   شراء دواء
+              </div>
+          <div class="shopicon">
+              <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+            </div>
+            </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-card>
+
+            <h2 class="username">
+              {{data.name}}
+            </h2>
+        
+
+        <div class="imagedev" [ngStyle]="{'background-image': 'url(' + data.img + ')'}">
+
+        </div>
+
+        <ion-card-content>
+          <ion-card-title>
+             
+            <div class="madic">
+                <h3>
+                    {{data.short}}
+                  </h3>
+                  <span>
+                    {{data.price}} د.ع
+                  </span>
+            </div>
+          
+              <p>
+                 {{data.des}}
+              </p>
+            </ion-card-title>
+
+            <div class="sctions">
+              <button (click)="addToCart(data.img,data.name,data.short,data.des,data.price)">
+                اضافة للسلة
+                <ion-icon name="basket"></ion-icon>
+              </button>
+            
+              
+            </div>
+
+        </ion-card-content>
+
+        </ion-card>
+
+</ion-content>

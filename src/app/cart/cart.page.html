@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title> 
+          <div class="shop">
+              <div class="name">
+                    سلتك
+                </div>
+            <div class="shopicon">
+                <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+              </div>
+              </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+
+<ion-content >
+
+
+
+
+    <div class="waiteload">
+
+        <div class="waite-contetn">
+    
+    
+          <div class="spinner">
+              <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+    
+          <div class="notfound">
+            <img src="assets/imgs/notfound.svg">
+            <p>لا يوجد عناصر</p>
+          </div>
+    
+        </div>
+    
+      </div>
+
+
+     <div class="mheader">
+        <ion-card *ngFor="let item of items">
+
+
+
+            <div class="cart">
+              <div class="param" [ngStyle]="{'background-image': 'url(' + item.payload.val().img + ')'}">
+             
+              </div>
+              <div class="content">
+              <div class="flexcontent">
+                 <h3>{{item.payload.val().name}}</h3>
+                 <p>{{item.payload.val().short}}</p>
+              </div>
+              </div>
+              <div class="config">
+                <div class="delete">
+                   <ion-icon name="trash" (click)="delete(item.key)" ></ion-icon>
+                </div>
+               <div class="price">
+                   {{item.payload.val().price}} د.ع 
+               </div>
+              </div>
+            </div>
+           </ion-card>
+     
+     </div>
+     <footer>
+        <div class="complete">
+            <button (click)="buy()" >اكمال الشراء</button>
+          </div>
+     </footer>
+
+</ion-content>

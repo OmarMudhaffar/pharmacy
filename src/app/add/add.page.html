@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+      <ion-title> 
+          <div class="shop">
+              <div class="name">
+                     اضافة دواء
+                </div>
+            <div class="shopicon">
+                <ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+              </div>
+              </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+  
+      <div class="mheader" id="mheader">
+  
+          <div class="mcontent">
+      
+                <div class="imagedev" *ngIf="imagecheck" [ngStyle]="{'background-image': 'url(' + imageurl + ')'}"></div>
+
+
+                <div class="myimage" (click)="takePhoto()" *ngIf="!imagecheck">
+                    <div class="myimage-content">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <p>رفع صورة</p>
+                  </div>
+                </div>
+              
+              <div class="inputs">
+              
+              <!-- singup view -->
+              
+              <div class="signupView">
+                  
+                  <div class="username">
+                      <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                      <input type="text" placeholder="اسم الدواء" id="username" #name  >
+                  </div>
+              
+                  <div class="email">
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                      <input type="number" placeholder="السعر" #price>
+                  </div>
+  
+                  <div class="email">
+                          <i class="fa fa-question" aria-hidden="true"></i>
+                          <input type="text" placeholder="وصف قصير" #short>
+                      </div>
+  
+                  <div class="email">
+                  <textarea placeholder="وصف كامل" #des></textarea>
+                  </div>
+              
+              
+              
+                  <div class="sections">
+  
+                          <button color="dark" ion-button outline (click)="add(name.value,price.value,short.value,des.value)" >اضافة دواء</button>
+                          
+                  </div>
+              
+              </div>
+  
+              </div>
+  
+              </div>
+  
+              </div>
+  
+  
+  </ion-content>
+  

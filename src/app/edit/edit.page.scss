@@ -1,0 +1,141 @@
+.header-md {
+    box-shadow: 0px -1px 2px 0px !important;
+}
+
+ion-toolbar {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none !important;
+
+}
+
+.title-md {
+    direction: rtl;
+}
+
+
+.shop {
+    display: flex;
+}
+
+.shop .name {
+font-family: 'Cairo', sans-serif;
+
+    width: 100%;
+}
+
+.shop .shopicon {
+    color: #FEA753;
+    display: flex;
+    align-items: center;
+}
+
+.mheader {
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+
+ .mheader .mcontent {
+    width: 100%;
+    text-align: center;
+    margin: 15px;
+}
+
+.logo {
+margin-bottom: 15px;
+height: 150px;
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1px dashed #636363;
+}
+
+.logo p {
+margin: 0;
+}
+
+.inputs input,textarea{
+
+    width: 100%;
+    padding: 17px;
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    direction: rtl;
+    font-size: 14px;
+    padding-right: 35px;
+}
+
+textarea {
+    padding-right: 15px;
+    margin-bottom: 1px !important;
+    padding-top: 10px;
+}
+
+ .inputs .username, .inputs .email{
+
+    position: relative;
+
+}
+
+
+
+ .inputs .email i,.inputs .username i {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 25px;
+        color: #FEA753;
+}
+
+ .inputs button {
+    background: transparent;
+    border: 1px solid #FEA753;
+    width: 100%;
+    border-radius: 4px;
+    padding: 19px;
+    font-size: 14px;
+    color: #636363;
+}
+
+
+
+
+ .myimage {
+    height: 250px;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FEA753;
+    width: 100%;
+    border: 1px dashed #CCC;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.imagedev {
+    margin-bottom: 10px;
+    border: 1px dashed #CCC;
+    height: 250px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+  .myimage p {
+    margin: 0;
+}

@@ -1,0 +1,157 @@
+.mheader {
+    display: flex;
+    justify-content: center;
+    background-image: url("../../assets/imgs/headerb.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    align-items: center;
+    font-family: 'Cairo', sans-serif;
+
+}
+
+
+ .mheader .mcontent {
+    width: 100%;
+    text-align: center;
+    margin: 15px;
+}
+
+.logo {
+margin-bottom: 15px;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.inputs input{
+
+    width: 100%;
+    padding: 17px;
+    border: 1px solid #CCC;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    direction: rtl;
+    font-size: 12px;
+    padding-right: 35px;
+}
+
+
+ .inputs .username, .inputs .email, .inputs .pass {
+
+    position: relative;
+
+}
+
+
+
+ .inputs .email i,.inputs .username i,  .inputs .pass i {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    top: 23px;
+        color: #FEA753;
+}
+
+ .inputs .pass .eye {
+    position: absolute;
+    left: 10px;
+    top: 23px;
+    font-size: 16px;
+    color: #636363;
+}
+
+.inputs #hidepass {
+    display: none;
+}
+
+ .inputs #hidepassTwo {
+    display: none;
+
+}
+
+ .inputs button {
+    background: transparent;
+    border: 1px solid #FEA753;
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #636363;
+}
+
+ .sections {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    direction: ltr;
+}
+
+.sections .login {
+   width: 100%;
+   text-align: left;
+}
+
+.sections .login p{
+    font-size:14px;
+    color: #636363;
+}
+
+.sochial {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+    align-items: center;
+}
+
+ .sochial img {
+    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+}
+
+ .sochial .google {
+    background: #ea4335;
+    color: #FFF;
+}
+
+
+.sochial .facebook {
+    background: #4267b2;
+    color: #FFF;
+}
+
+.sochial .twitter {
+    background: #1da1f2;
+    color: #FFF;
+}
+
+.or div{
+width: 100%;
+font-size: 14px;
+}
+
+ .or .orleft {
+    border: 1px solid #636363;
+    border-bottom: 0px;
+}
+
+ .or .orright {
+    border: 1px solid #636363;
+    border-bottom: 0px;
+
+}
+
+ .or {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+ .loginView {
+    display: none;
+}
+

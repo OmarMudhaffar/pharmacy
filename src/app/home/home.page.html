@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        
+    <ion-title>
+
+        <div class="shop">
+    
+      <div class="name">
+
+        صيدليتك
+   </div>
+
+   <div class="shopicon">
+      <i class="fa fa-shopping-cart" aria-hidden="true" (click)="myCart()" ></i>
+    </div>
+  </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+    
+
+  <ion-searchbar (ionInput)="getItems($event)" animated  placeholder="ابحث عن دواء"></ion-searchbar>
+
+
+    <div class="waiteload">
+
+        <div class="waite-contetn">
+    
+    
+          <div class="spinner">
+              <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+    
+          <div class="notfound">
+            <img src="assets/imgs/notfound.svg">
+            <p>لا يوجد عناصر</p>
+          </div>
+    
+        </div>
+    
+      </div>
+ 
+    <ion-row>
+        <ion-col size="6"  *ngFor="let item of items">
+            <ion-card>
+
+                <ion-item lines="none">
+                    <ion-icon *ngIf="admin" name="create" slot="start" style="color:#039be5;" (click)="edit(item.key,item.payload.val().img,item.payload.val().name,item.payload.val().des,item.payload.val().price,item.payload.val().short)"></ion-icon>
+                    <ion-icon *ngIf="admin" name="trash" style="color:red;" slot="end" (click)="delete(item.key)" ></ion-icon>
+                  </ion-item>
+
+                <div class="imagedev" [ngStyle]="{'background-image': 'url(' + item.payload.val().img + ')'}"></div>
+                <ion-card-content>
+                  <ion-card-title>
+                    <h3>
+                      {{item.payload.val().name}}
+                    </h3>
+              
+                    </ion-card-title>
+                  <p>
+                   {{item.payload.val().short}}
+                  </p>
+                </ion-card-content>
+                
+                <ion-item lines="none">
+                    <span class="price">
+                        د.ع
+                      {{item.payload.val().price}}</span>
+                    <ion-icon name="cart" style="color:#FEA753;" slot="end" (click)="view(item.payload.val().img,item.payload.val().name,item.payload.val().des,item.payload.val().price,item.payload.val().short)" ></ion-icon>
+                  </ion-item>
+        
+         
+        
+              </ion-card>
+        </ion-col>
+
+      </ion-row>
+
+              
+
+
+
+  
+</ion-content>
+
