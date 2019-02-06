@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'add', loadChildren: './add/add.module#AddPageModule' },
   { path: 'view', loadChildren: './view/view.module#ViewPageModule' },
   { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
-  { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' }
+  { path: 'edit', loadChildren: './edit/edit.module#EditPageModule' },
+  { path: 'info', loadChildren: './info/info.module#InfoPageModule' }
 ];
 
 @NgModule({

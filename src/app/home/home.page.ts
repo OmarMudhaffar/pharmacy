@@ -44,8 +44,9 @@ export class HomePage {
             $(".waiteload").hide();
           }
 
-        this.items = data.reverse();
-        this.myar = data.reverse();
+        this.items = data.slice().reverse();
+        this.myar = data.slice().reverse();
+     
       });
 
 

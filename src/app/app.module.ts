@@ -16,6 +16,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+// import { Facebook } from '@ionic-native/facebook/ngx';
 
 var config = {
   apiKey: "AIzaSyAHf7ecmXp4TqBpWhKfel68eEq1FS9T9nY",
@@ -45,6 +47,7 @@ var config = {
     NativeStorage,
     BarcodeScanner,
     Camera,
+    GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

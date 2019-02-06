@@ -30,7 +30,7 @@ export class ListPage implements OnInit {
             $(".mheader").fadeIn();
             $("footer").fadeIn();
           }
-        this.items = data.reverse();
+        this.items = data.slice().reverse();
 
         })
       }
@@ -63,7 +63,7 @@ export class ListPage implements OnInit {
      var alert = await this.alert.create({
        subHeader:"هل تريد حذف قسيمة الشراء؟",
        buttons:[{text:"حذف",handler: ()=>{
-       this.db.list("cart").remove(key).then( ()=> {
+       this.db.list("buy").remove(key).then( ()=> {
   
         this.showToast();
        });

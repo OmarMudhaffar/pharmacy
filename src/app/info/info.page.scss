@@ -1,0 +1,116 @@
+.header-md {
+    box-shadow: 0px -1px 2px 0px !important;
+}
+
+ion-toolbar {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none !important;
+
+}
+
+.title-md {
+    direction: rtl;
+}
+
+
+.shop {
+    display: flex;
+}
+
+.name {
+font-family: 'Cairo', sans-serif;
+
+    width: 100%;
+}
+
+
+.shopicon {
+    color: #FEA753;
+    display: flex;
+    align-items: center;
+}
+
+.shop ion-icon {
+    color: #FEA753;
+}
+
+
+.logos {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+
+
+
+ p {
+    font-family: 'Cairo', sans-serif;
+text-align: justify;
+text-align: right;
+direction: rtl;
+}
+
+
+
+ .toolbar-title-md span{
+    float: right;
+}
+
+ion-list-header {
+
+    border-top: 0;
+    margin-top: 21px;
+    font-size: 18px;
+}
+
+.label-md {
+    margin-bottom: 0px !important;
+
+}
+
+ .item-md  {
+    font-family: 'Cairo', sans-serif;
+
+}
+
+ .item-md p {
+    text-align: right;
+}
+
+
+ .about 
+{
+    font-family: 'Cairo', sans-serif;
+    margin: 30px 20px;
+    text-align: justify;
+    direction: rtl;
+}
+
+ h2 {
+    font-family: 'Cairo', sans-serif;
+    color: #FEA753;
+    margin-top: 30px;
+    text-align: center;
+}
+
+ i,ion-icon {
+    color: #676767;
+    margin: 5px;
+}
+
+.item-md {
+    margin-bottom: 5px;
+}
+
+.item-md ion-icon[item-start] {
+    margin-bottom: 2px;
+    color: #676767;
+}

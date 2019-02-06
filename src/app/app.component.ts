@@ -39,7 +39,7 @@ export class AppComponent {
     },
     {
       title: 'عن التطبيق',
-      url: '/about',
+      url: '/info',
       icon: 'help'
     }
   ];
@@ -52,10 +52,16 @@ export class AppComponent {
     public storeg : NativeStorage,private qrScanner: BarcodeScanner
   ) {
 
+    statusBar.backgroundColorByHexString("#fff");
 
     this.initializeApp();
 
     auth.authState.subscribe(user => {
+
+      if(user == undefined){
+        navCtrl.navigateRoot("/");
+      }
+
       if(user != undefined){
         if(user.email == "admin@admin.com"){
             this.admin = true;
@@ -119,13 +125,12 @@ export class AppComponent {
   async showAlert(text){
 
     var mytext : String = text;
-    mytext.split("&&");
+    mytext.replace("20%"," ")
 
     var alert = await this.alrt.create({
-      header:mytext[0],
-      subHeader:mytext[1],
-      message:mytext[2],
-      cssClass:"alertdire"
+      subHeader:text,
+      cssClass:"alertdire",
+      buttons:["حسنا"]
     });
     await alert.present();
   }

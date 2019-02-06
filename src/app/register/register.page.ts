@@ -4,6 +4,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NavController, LoadingController, ToastController, AlertController, MenuController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-register',
@@ -17,7 +20,7 @@ export class RegisterPage implements OnInit {
     public load : LoadingController,public auth : AngularFireAuth,
     public toast : ToastController,public alert : AlertController,
     public navCtrl : NavController,public menu : MenuController,
-    public storeg : NativeStorage) 
+    public storeg : NativeStorage,private googlePlus: GooglePlus) 
     { 
 
       menu.enable(false);
@@ -233,13 +236,84 @@ async hideLoad(){
   
     }
 
-    fblogin(){
 
+    // fblogin(){
+
+  
+  
+    //  this.fb.login(['email']).then( (res)=> {
+    //   var crend = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+    //   firebase.auth().signInWithCredential(crend).then(info => {
+  
+    //   this.showLoad("جاري المعالجة");
+  
+    //   this.db.list("users",ref => ref.orderByChild("email").equalTo(info.email)).valueChanges().subscribe(data => {
+        
+    //     if(data[0] == undefined){
+    //       this.db.list("users").push({
+    //         email:info.email,
+    //         name:info.displayName,
+    //       }).then( ()=> {
+    //         this.navCtrl.navigateRoot("/home");
+    //       })
+    //       this.hideLoad();
+  
+    //     }
+  
+    //     if(data[0] != undefined){
+    //       this.hideLoad();
+    //       this.navCtrl.navigateRoot("/home");
+
+    //     }
+  
+       
+        
+  
+    //   })
+  
+    //   })
+  
+    //  })
+  
+    // }
+    
+    singUpGoogle(){
+
+
+  
+      this.googlePlus.login({
+        'webClientId':"998801611393-rkso8atlfdfel0tn2e94duk9q11cguoh.apps.googleusercontent.com",
+        'offline':true
+      }).then(res => {
+  
+        this.showLoad("جاري المعالجة")
+        firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken)).then(suc => {
+          
+          this.hideLoad();
+  
+          this.navCtrl.navigateRoot("/home");
+  
+          this.db.list("users",ref=>ref.orderByChild("email").equalTo(res.email)).valueChanges().subscribe(usercheck => {
+            
+            if(usercheck[0] == undefined){
+  
+              this.db.list("users").push({
+                email:res.email,
+                name:res.displayName,
+              })
+            
+          }
+  
+          })
+  
+        }).catch(err => {
+          this.hideLoad();
+          alert(err.message);
+        })
+      })
     }
   
-    singUpGoogle(){
-      
-    }
+  
   
 
 }

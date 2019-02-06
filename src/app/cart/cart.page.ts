@@ -42,8 +42,8 @@ export class CartPage implements OnInit {
           $(".mheader").fadeIn();
           $("footer").fadeIn();
         }
-      this.items = data.reverse();
-      this.myar = data.reverse();
+      this.items = data.slice().reverse();
+      this.myar = data.slice().reverse();
 
       data.forEach(data => {
         this.names.push(data.payload.val()["name"])
@@ -113,8 +113,7 @@ export class CartPage implements OnInit {
   var alert = await this.alert.create({
     subHeader:"هل تريد شراء الادوية؟",
     buttons:[{text:"شراء",handler: ()=>{
-      var newuser = this.username.replace(" ","20%");
-      var text = "التاريخ%20:%20" + monthNames[d.getMonth()] + "%20" + d.getDate() + ",%20" + d.getFullYear() + "%20&&%20الاسم%20:%20" + newuser + "&&الادوية%20:%20" + this.names.toString().replace(",","%20|%20")
+      var text = "الادوية:" + this.names.toString().replace(",","20%|20%");
         this.db.list("buy").push({
           names:this.names,
           username:this.username,
