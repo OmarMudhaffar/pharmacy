@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
-import { Platform, AlertController, NavController } from '@ionic/angular';
+import { Platform, AlertController, NavController, IonRouterOutlet } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  @ViewChild(IonRouterOutlet) routerOutlet: IonRouterOutlet;
 
 
   admin = false;
@@ -49,8 +54,28 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,public auth : AngularFireAuth,
     public alrt : AlertController, public navCtrl : NavController,
-    public storeg : NativeStorage,private qrScanner: BarcodeScanner
+    public storeg : NativeStorage,private qrScanner: BarcodeScanner,
+    public router : Router
   ) {
+
+    platform.backButton.subscribe( ()=> {
+     if(this.routerOutlet && this.routerOutlet.canGoBack()){
+       this.routerOutlet.pop();
+     }else if(this.router.url == "/register") {
+      navigator['app'].exitApp();
+     }else{
+       navigator['app'].exitApp();
+     }
+    })
+
+    this.auth.authState.subscribe(user => {
+      if(user != null){
+        this.navCtrl.navigateRoot("/home")
+      }
+      if(user == null){
+        this.navCtrl.navigateRoot("/register")
+      }
+    })
 
     statusBar.backgroundColorByHexString("#fff");
 
@@ -88,6 +113,12 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      var lastTimeBackPress = 0; 
+      var timePeriodToExit = 2000;
+      
+      
+
     });
   }
 

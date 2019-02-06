@@ -296,6 +296,8 @@ async hideLoad(){
           this.db.list("users",ref=>ref.orderByChild("email").equalTo(res.email)).valueChanges().subscribe(usercheck => {
             
             if(usercheck[0] == undefined){
+
+              this.storeg.setItem("email",res.email);
   
               this.db.list("users").push({
                 email:res.email,
