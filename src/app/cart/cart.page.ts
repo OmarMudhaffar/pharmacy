@@ -109,15 +109,27 @@ export class CartPage implements OnInit {
     "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
   ];
   
+  var locations = [ 
+    {title:"صيدلية جبل الزيتون",lat:"33.2696418",lng:"44.3756372"},
+    {title:"صيدلية بيت الدواء",lat:"33.241252",lng:"44.3756372"},
+    {title:"صيدلية ينبوع الشفاء",lat:"33.241252",lng:"44.3756372"},
+    {title:"صيدلية زنوبيا",lat:"33.241252",lng:"44.3756372"},
+   ];
+
+   var random = locations[Math.floor(Math.random()*locations.length)];
+
 
   var alert = await this.alert.create({
     subHeader:"هل تريد شراء الادوية؟",
     buttons:[{text:"شراء",handler: ()=>{
-      var text = "الادوية:" + this.names.toString().replace(",","20%|20%");
+      var text = "الادوية:" + this.names.toString().replace(",","20%|20%").replace(" ","20%|20%");
         this.db.list("buy").push({
           names:this.names,
           username:this.username,
           email:this.email,
+          title:random.title,
+          lat:random.lat,
+          lng:random.lng,
           date: monthNames[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear(),
           qr:"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+text
         }).then( ()=> {

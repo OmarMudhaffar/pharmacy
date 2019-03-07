@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -55,15 +56,16 @@ export class AppComponent {
     private statusBar: StatusBar,public auth : AngularFireAuth,
     public alrt : AlertController, public navCtrl : NavController,
     public storeg : NativeStorage,private qrScanner: BarcodeScanner,
-    public router : Router
+    public router : Router,
+    public db : AngularFireDatabase
   ) {
 
     platform.backButton.subscribe( ()=> {
      if(this.routerOutlet && this.routerOutlet.canGoBack()){
        this.routerOutlet.pop();
-     }else if(this.router.url == "/register") {
+     }else if(this.router.url == "/") {
       navigator['app'].exitApp();
-     }else{
+     }else if(this.router.url == "/home") {
        navigator['app'].exitApp();
      }
     })
@@ -73,7 +75,7 @@ export class AppComponent {
         this.navCtrl.navigateRoot("/home")
       }
       if(user == null){
-        this.navCtrl.navigateRoot("/register")
+        this.navCtrl.navigateRoot("/")
       }
     })
 
@@ -169,7 +171,12 @@ export class AppComponent {
   qrScan() {
    
     this.qrScanner.scan().then(data => {
-     this.showAlert(data.text);
+     this.showAlert(data.text.replace("20%"," ").replace(":"," : "));
+
+     var url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data.text;
+     this.db.list("buy",ref=> ref.orderByChild("qr").equalTo(url)).snapshotChanges().subscribe(all => {
+       this.db.list("buy").remove(all[0].key);
+     })
     })
 
 }

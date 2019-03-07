@@ -47,6 +47,8 @@ export class AddPage implements OnInit {
   }
 
   async add(name,price,short,des){
+
+
    var alert = await this.alert.create({
      subHeader:"هل تريد اضافة الدواء؟",
      buttons:[{text:"اضافة",handler: ()=>{
