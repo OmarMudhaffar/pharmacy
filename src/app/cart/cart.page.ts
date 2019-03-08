@@ -110,10 +110,10 @@ export class CartPage implements OnInit {
   ];
   
   var locations = [ 
-    {title:"صيدلية جبل الزيتون",lat:"33.2696418",lng:"44.3756372"},
-    {title:"صيدلية بيت الدواء",lat:"33.241252",lng:"44.3756372"},
-    {title:"صيدلية ينبوع الشفاء",lat:"33.241252",lng:"44.3756372"},
-    {title:"صيدلية زنوبيا",lat:"33.241252",lng:"44.3756372"},
+    {title:"صيدلية جبل الزيتون",lat:"33.2696418",lng:"44.3845506"},
+    {title:"صيدلية بيت الدواء",lat:"33.3075622",lng:"44.4301685"},
+    {title:"صيدلية ينبوع الشفاء",lat:"33.2775307",lng:"44.4915552"},
+    {title:"صيدلية زنوبيا",lat:"33.2550618",lng:"44.3774455"},
    ];
 
    var random = locations[Math.floor(Math.random()*locations.length)];

@@ -91,5 +91,11 @@
     <plugin name="cordova-plugin-googleplus" spec="7.0.0">
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
     </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBO2q6u3sRTCWKuA6X7RFs8qvYaRt49icY" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBO2q6u3sRTCWKuA6X7RFs8qvYaRt49icY" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
     <engine name="android" spec="7.1.4" />
 </widget>

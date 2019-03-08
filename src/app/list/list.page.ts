@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AlertController, ToastController, NavController } from '@ionic/angular';
 import * as $ from 'jquery'
+import { DataviewService } from '../dataview.service';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,7 @@ export class ListPage implements OnInit {
 
   constructor(public db : AngularFireDatabase,public auth : AngularFireAuth,
     public alert : AlertController,public toast : ToastController,
-    public navCtrl : NavController) {
+    public navCtrl : NavController,public dataView : DataviewService) {
     
       auth.authState.subscribe(user => {
         if(user != undefined){
@@ -39,7 +40,7 @@ export class ListPage implements OnInit {
   }
 
   back(){
-    this.navCtrl.navigateBack("/home");
+    this.navCtrl.navigateRoot("/home");
   }
 
   ngOnInit(){
@@ -73,5 +74,17 @@ export class ListPage implements OnInit {
      await alert.present();
  }
 
+
+ viewGps(lat,lng,name){
+
+  this.dataView.changeData({
+    lat:lat,
+    lng:lng,
+    name:name
+  })
+
+
+   this.navCtrl.navigateRoot("/gps")
+ }
 
 }

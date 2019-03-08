@@ -56,7 +56,7 @@
         <ion-item lines="none">
           <ion-icon name="map" slot="start" style="color:#007bff;"></ion-icon>
           <ion-label>{{item.payload.val().title}}</ion-label>
-          <ion-icon name="pin" slot="end" style="color:#000;"></ion-icon>
+          <ion-icon name="pin" (click)="viewGps(item.payload.val().lat,item.payload.val().lng,item.payload.val().title)" slot="end" style="color:#000;"></ion-icon>
 
         </ion-item>
       
